@@ -1,0 +1,64 @@
+name: makeupflutter
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+
+  intl: any
+  dio: ^5.9.0
+  shared_preferences: ^2.5.4
+  shimmer: ^3.0.0
+  carousel_slider: ^5.1.1
+  flutter_secure_storage: ^9.2.2
+  expandable_text: ^2.3.0
+  flutter_custom_clippers: ^2.1.0
+  flutter_screenutil: ^5.9.3
+  animate_do: ^3.3.9
+  smooth_page_indicator: ^1.2.0+3
+  json_annotation: ^4.9.0
+  flutter_rating_bar: ^4.0.1
+  uuid: ^4.5.1
+  flutter_spinkit: ^5.2.1
+  font_awesome_flutter: ^10.8.0
+  persistent_bottom_nav_bar: ^6.2.1
+  shamsi_date: ^1.1.0
+  lottie: ^3.3.2
+  webview_flutter: ^4.13.0
+  popover: ^0.4.0
+  bloc: ^9.2.0
+  flutter_bloc: ^9.1.1
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/logoconcept.png
+    - assets/images/herosection.png
+    - assets/images/skinIcon.png
+    - assets/images/lipIcon.png
+    - assets/images/eyeIcon.png
+  fonts:
+    - family: kalameh
+      fonts:
+        - asset: assets/fonts/kalameh_black.ttf
+    - family: peyda
+      fonts:
+        - asset: assets/fonts/Peyda-Bold.ttf
