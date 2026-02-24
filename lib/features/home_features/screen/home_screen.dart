@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:makeupflutter/config/app_config/app_button/app_glass_button.dart';
 import 'package:makeupflutter/config/app_config/app_color/colors.dart';
 import 'package:makeupflutter/config/app_config/app_font_styles/app_font_styles.dart';
 import 'package:makeupflutter/config/app_config/app_shapes/border_radius.dart';
@@ -118,7 +119,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               SizedBox(width: 8.w),
-                              const Icon(Icons.arrow_forward, color: Colors.white, size: 18),
+                              const Icon(
+                                Icons.arrow_forward,
+                                color: Colors.white,
+                                size: 18,
+                              ),
                             ],
                           ),
                         ),
@@ -193,10 +198,70 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(height: 15.h),
                   const PopularProductsRowWidget(),
+                  AspectRatio(
+                    aspectRatio: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: getBorderRadiusFunc(10),
+                        image: DecorationImage(
+                          image: AssetImage(AppAssetsUrl.curtainUrl),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Stack(
+                        alignment: Alignment.centerRight,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: getBorderRadiusFunc(10),
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Colors.transparent,
+                                  Colors.black.withOpacity(0.7),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(right: 15.sp),
+                                    child: Text(
+                                      'درخشش ایران',
+                                      style: AppFontStyles().secondFontStyle(
+                                        20.sp,
+                                        Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                'ترکیبی از محصولات متنوع برای برای استایلی خیره کننده و مدرن',
+                                style: AppFontStyles().secondFontStyle(
+                                  13.sp,
+                                  Colors.white,
+                                ),
+                              ),
+                              SizedBox(height: 100.sp,),
+                              Padding(
+                                padding: EdgeInsets.all(10.sp),
+                                child: GlassButton(text: 'مشاهده کالکشن', onTap: (){}),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
-
             SizedBox(height: 30.h),
           ],
         ),

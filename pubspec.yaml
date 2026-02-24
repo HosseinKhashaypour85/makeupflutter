@@ -55,6 +55,8 @@ flutter:
     - assets/images/skinIcon.png
     - assets/images/lipIcon.png
     - assets/images/eyeIcon.png
+    - assets/images/curtain.png
+    - assets/images/collection.png
   fonts:
     - family: kalameh
       fonts:

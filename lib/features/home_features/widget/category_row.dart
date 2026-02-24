@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:makeupflutter/features/category_features/screen/category_screen.dart';
 import 'package:makeupflutter/features/home_features/widget/shimmer_loading.dart';
+import 'package:makeupflutter/features/sub_category_features/screen/sub_category_screen.dart';
 
 import '../../../config/app_config/app_color/colors.dart';
 import '../../../config/app_config/app_font_styles/app_font_styles.dart';
@@ -63,28 +63,28 @@ class _ShowCategoriesRowState extends State<ShowCategoriesRow> {
                       if (index == 0) {
                         Navigator.pushNamed(
                           context,
-                          CategoryScreen.screenId,
+                          SubCategoryScreen.screenId,
                           arguments: 'skin',
                         );
                       }
                       if (index == 1) {
                         Navigator.pushNamed(
                           context,
-                          CategoryScreen.screenId,
+                          SubCategoryScreen.screenId,
                           arguments: 'lip',
                         );
                       }
                       if (index == 2) {
                         Navigator.pushNamed(
                           context,
-                          CategoryScreen.screenId,
+                          SubCategoryScreen.screenId,
                           arguments: 'eye',
                         );
                       }
                       if (index == 3) {
                         Navigator.pushNamed(
                           context,
-                          CategoryScreen.screenId,
+                          SubCategoryScreen.screenId,
                           arguments: 'perfume',
                         );
                       }

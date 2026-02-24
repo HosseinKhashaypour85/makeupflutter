@@ -5,20 +5,20 @@ import 'package:makeupflutter/config/app_config/app_font_styles/app_font_styles.
 
 import '../../home_features/widget/app_bar_widget.dart';
 import '../logic/category_bloc.dart';
-import '../model/category_model.dart';
+import '../model/sub_category_model.dart';
 import '../services/category_api_repository.dart';
 
-class CategoryScreen extends StatefulWidget {
-  const CategoryScreen({super.key, required this.categoryId});
+class SubCategoryScreen extends StatefulWidget {
+  const SubCategoryScreen({super.key, required this.categoryId});
 
-  static const String screenId = 'category';
+  static const String screenId = 'subcategory';
   final String categoryId;
 
   @override
-  State<CategoryScreen> createState() => _CategoryScreenState();
+  State<SubCategoryScreen> createState() => _SubCategoryScreenState();
 }
 
-class _CategoryScreenState extends State<CategoryScreen> {
+class _SubCategoryScreenState extends State<SubCategoryScreen> {
   // رنگ‌های قهوه‌ای
   final Color brownPrimary = const Color(0xFF8B4513); // قهوه‌ای سوخته
   final Color brownLight = const Color(0xFFD2691E); // قهوه‌ای روشن (چوبی)
@@ -86,7 +86,7 @@ class ShowCategoryProducts extends StatefulWidget {
 
 class _ShowCategoryProductsState extends State<ShowCategoryProducts> {
   final CategoryApiRepository _repository = CategoryApiRepository();
-  late Future<CategoryModel> _future;
+  late Future<SubCategoryModel> _future;
 
   @override
   void initState() {
@@ -104,7 +104,7 @@ class _ShowCategoryProductsState extends State<ShowCategoryProducts> {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: FutureBuilder<CategoryModel>(
+      child: FutureBuilder<SubCategoryModel>(
         future: _future,
         builder: (context, snapshot) {
           // حالت در حال بارگذاری

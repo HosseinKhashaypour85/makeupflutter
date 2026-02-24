@@ -8,17 +8,17 @@ import 'package:makeupflutter/features/auth_features/logic/auth_bloc.dart';
 import 'package:makeupflutter/features/auth_features/screen/auth_screen.dart';
 import 'package:makeupflutter/features/auth_features/screen/confirm_otp_screen.dart';
 import 'package:makeupflutter/features/auth_features/services/auth_api_services.dart';
-import 'package:makeupflutter/features/category_features/logic/category_bloc.dart';
-import 'package:makeupflutter/features/category_features/services/category_api_repository.dart';
 import 'package:makeupflutter/features/home_features/screen/home_screen.dart';
 import 'package:makeupflutter/features/intro_features/logic/splash_cubit.dart';
 import 'package:makeupflutter/features/intro_features/screen/check_token_screen.dart';
 import 'package:makeupflutter/features/intro_features/screen/splash_screen.dart';
 import 'package:makeupflutter/features/public_features/logic/bottom_nav_cubit.dart';
 import 'package:makeupflutter/features/public_features/screen/bottom_nav_bar_screen.dart';
-
 import 'features/category_features/screen/category_screen.dart';
 import 'features/product_features/screen/all_products_screen.dart';
+import 'features/sub_category_features/logic/category_bloc.dart';
+import 'features/sub_category_features/screen/sub_category_screen.dart';
+import 'features/sub_category_features/services/category_api_repository.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,12 +57,13 @@ class MyApp extends StatelessWidget {
             HomeScreen.screenId: (context) => HomeScreen(),
             BottomNavBarScreen.screenId: (context) => BottomNavBarScreen(),
             AllProductsScreen.screenId: (context) => AllProductsScreen(),
-            CategoryScreen.screenId: (context) {
+            SubCategoryScreen.screenId: (context) {
               final categoryId =
                   ModalRoute.of(context)!.settings.arguments as String;
 
-              return CategoryScreen(categoryId: categoryId);
+              return SubCategoryScreen(categoryId: categoryId);
             },
+            CategoryScreen.screenId: (context) => CategoryScreen(),
           },
           initialRoute: BottomNavBarScreen.screenId,
         ),

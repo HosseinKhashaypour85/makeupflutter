@@ -1,9 +1,9 @@
-class CategoryModel {
-  CategoryModel({
+class SubCategoryModel {
+  SubCategoryModel({
       this.category, 
       this.products,});
 
-  CategoryModel.fromJson(dynamic json) {
+  SubCategoryModel.fromJson(dynamic json) {
     category = json['category'];
     if (json['products'] != null) {
       products = [];

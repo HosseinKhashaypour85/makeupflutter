@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:makeupflutter/features/category_features/model/category_model.dart';
-import 'package:makeupflutter/features/category_features/services/category_api_repository.dart';
-import 'package:makeupflutter/features/category_features/services/category_api_services.dart';
 import 'package:meta/meta.dart';
+
+import '../services/category_api_repository.dart';
+import '../model/sub_category_model.dart';
 
 part 'category_event.dart';
 
@@ -16,7 +16,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<CallCategoryProducts>((event, emit) async {
       emit(CategoryLoadingState());
       try {
-        CategoryModel categoryModel = await repository.callCategoryApiServices(
+        SubCategoryModel subCategoryModel = await repository.callCategoryApiServices(
           event.categoryId,
         );
         emit(CategoryCompletedState());

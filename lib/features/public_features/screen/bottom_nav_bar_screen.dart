@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:makeupflutter/features/category_features/screen/category_screen.dart';
 import 'package:makeupflutter/features/home_features/screen/home_screen.dart';
 import 'package:makeupflutter/features/public_features/logic/bottom_nav_cubit.dart';
 
@@ -16,7 +17,7 @@ class BottomNavBarScreen extends StatefulWidget {
 class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   List<Widget>screenList = [
     HomeScreen(),
-    Container(),
+    CategoryScreen(),
     Container(),
     Container(),
   ];
@@ -27,19 +28,19 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
-          selectedItemColor: primary2Color,
+          selectedItemColor: primaryColor,
           showSelectedLabels: true,
           showUnselectedLabels: true,
           unselectedItemColor: Colors.black,
           selectedLabelStyle: const TextStyle(
             color: primaryColor,
             fontWeight: FontWeight.bold,
-            fontFamily: 'kalameh',
+            fontFamily: 'peyda',
           ),
           unselectedLabelStyle: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
-            fontFamily: 'kalameh',
+            fontFamily: 'peyda',
           ),
           items: [
             BottomNavigationBarItem(
@@ -48,9 +49,9 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               activeIcon: Icon(Icons.home),
             ),
             BottomNavigationBarItem(
-              label: 'جستجو',
-              icon: Icon(Icons.search_outlined),
-              activeIcon: Icon(Icons.search),
+              label: 'دسته بندی ها',
+              icon: Icon(Icons.category_outlined),
+              activeIcon: Icon(Icons.category),
             ),
             BottomNavigationBarItem(
               label: 'علاقه مندی ها',

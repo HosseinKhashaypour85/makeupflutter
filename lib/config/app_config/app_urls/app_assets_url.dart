@@ -5,4 +5,7 @@ class AppAssetsUrl {
   static const skinIconUrl = 'assets/images/skinIcon.png';
   static const lipIconUrl = 'assets/images/lipIcon.png';
   static const eyeIconUrl = 'assets/images/eyeIcon.png';
+  static const curtainUrl = 'assets/images/curtain.png';
+  static const collectionImage = 'assets/images/collection.png';
+  static const popularCategories = 'https://rosamakeup.codeplusdev.ir/api/products/categories/get_popular_categories';
 }
