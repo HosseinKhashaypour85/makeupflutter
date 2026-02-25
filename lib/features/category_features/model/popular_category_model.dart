@@ -1,36 +1,19 @@
 class PopularCategoryModel {
   PopularCategoryModel({
-      this.id, 
-      this.id, 
-      this.name, 
-      this.image, 
-      this.productsCount, 
-      this.description, 
-      this.productIds, 
-      this.createdAt, 
-      this.updatedAt, 
-      this.v, 
-      this.products,});
+    this.mongoId,
+    this.id,
+    this.name,
+    this.image,
+    this.productsCount,
+    this.description,
+    this.productIds,
+    this.createdAt,
+    this.updatedAt,
+    this.v,
+    this.products,
+  });
 
-  PopularCategoryModel.fromJson(dynamic json) {
-    id = json['_id'];
-    id = json['id'];
-    name = json['name'];
-    image = json['image'];
-    productsCount = json['productsCount'];
-    description = json['description'];
-    productIds = json['productIds'] != null ? json['productIds'].cast<int>() : [];
-    createdAt = json['createdAt'];
-    updatedAt = json['updatedAt'];
-    v = json['__v'];
-    if (json['products'] != null) {
-      products = [];
-      json['products'].forEach((v) {
-        products?.add(Products.fromJson(v));
-      });
-    }
-  }
-  String? id;
+  String? mongoId; // _id
   int? id;
   String? name;
   String? image;
@@ -40,57 +23,66 @@ class PopularCategoryModel {
   String? createdAt;
   String? updatedAt;
   int? v;
-  List<Products>? products;
+  List<Product>? products;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['_id'] = id;
-    map['id'] = id;
-    map['name'] = name;
-    map['image'] = image;
-    map['productsCount'] = productsCount;
-    map['description'] = description;
-    map['productIds'] = productIds;
-    map['createdAt'] = createdAt;
-    map['updatedAt'] = updatedAt;
-    map['__v'] = v;
-    if (products != null) {
-      map['products'] = products?.map((v) => v.toJson()).toList();
-    }
-    return map;
+  factory PopularCategoryModel.fromJson(Map<String, dynamic> json) {
+    return PopularCategoryModel(
+      mongoId: json['_id'] as String?,
+      id: json['id'] as int?,
+      name: json['name'] as String?,
+      image: json['image'] as String?,
+      productsCount: json['productsCount'] as int?,
+      description: json['description'] as String?,
+      productIds: (json['productIds'] as List?)?.map((e) => e as int).toList() ?? [],
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
+      v: json['__v'] as int?,
+      products: (json['products'] as List?)
+          ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+          [],
+    );
   }
 
+  Map<String, dynamic> toJson() => {
+    '_id': mongoId,
+    'id': id,
+    'name': name,
+    'image': image,
+    'productsCount': productsCount,
+    'description': description,
+    'productIds': productIds ?? [],
+    'createdAt': createdAt,
+    'updatedAt': updatedAt,
+    '__v': v,
+    'products': products?.map((e) => e.toJson()).toList() ?? [],
+  };
 }
 
-class Products {
-  Products({
-      this.id, 
-      this.name, 
-      this.brand, 
-      this.price, 
-      this.image,});
+class Product {
+  Product({this.id, this.name, this.brand, this.price, this.image});
 
-  Products.fromJson(dynamic json) {
-    id = json['id'];
-    name = json['name'];
-    brand = json['brand'];
-    price = json['price'];
-    image = json['image'];
-  }
   int? id;
   String? name;
   String? brand;
   int? price;
   String? image;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['name'] = name;
-    map['brand'] = brand;
-    map['price'] = price;
-    map['image'] = image;
-    return map;
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'] as int?,
+      name: json['name'] as String?,
+      brand: json['brand'] as String?,
+      price: json['price'] as int?,
+      image: json['image'] as String?,
+    );
   }
 
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'name': name,
+    'brand': brand,
+    'price': price,
+    'image': image,
+  };
 }

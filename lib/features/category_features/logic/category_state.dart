@@ -1,15 +1,19 @@
-part of 'category_bloc.dart';
+import '../model/popular_category_model.dart';
 
-@immutable
 abstract class CategoryState {}
 
 class CategoryInitial extends CategoryState {}
 
-class CategoryLoadingState extends CategoryState{}
+class CategoryLoadingState extends CategoryState {}
 
-class CategoryCompletedState extends CategoryState{}
+class CategoryCompletedState extends CategoryState {
+  final List<PopularCategoryModel> categories;
 
-class CategoryErrorState extends CategoryState{
+  CategoryCompletedState({required this.categories});
+}
+
+class CategoryErrorState extends CategoryState {
   final String msg;
+
   CategoryErrorState({required this.msg});
 }
